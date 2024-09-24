@@ -52,7 +52,7 @@ namespace ApiTaller.Controllers
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCita(long id)
-        {
+    {
             await _clienteService.DeleteCita(id);
             return NoContent();
         }

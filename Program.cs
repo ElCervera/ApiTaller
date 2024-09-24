@@ -8,13 +8,13 @@ using ApiTaller.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// DB config
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Repositories & Services
 builder.Services.AddScoped<ICitaRepository, CitaRepository>();
 builder.Services.AddScoped<ICitaService, CitaService>();
+
+// Agregar otros servicios y repositorios aquí...
 
 // Swagger
 builder.Services.AddSwaggerDocumentation();

@@ -34,7 +34,7 @@ namespace ApiTaller.Services.Implementations
         }
 
         public async Task DeleteCita(long id)
-        {
+    {
             await _clienteRepository.DeleteCliente(id);
         }
     }

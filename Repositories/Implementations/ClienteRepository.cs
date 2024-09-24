@@ -37,10 +37,10 @@ namespace ApiTaller.Repositories.Implementations
         }
 
         public async Task DeleteCliente(long id)
-        {
+{
             var cliente = await _context.Clientes.FindAsync(id);
             if (cliente != null)
-            {
+    {
                 _context.Clientes.Remove(cliente);
                 await _context.SaveChangesAsync();
             }
