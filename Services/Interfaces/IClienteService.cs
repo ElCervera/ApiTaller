@@ -4,7 +4,7 @@ namespace ApiTaller.Services.Interfaces
 {
     public interface IClienteService
     {
-        Task<IEnumerable<Cliente>> GetAllCliente();
+        Task<IEnumerable<Cliente>> GetAllCliente(); 
         Task<Cliente> GetClienteById(long id);
         Task AddCliente(Cliente cliente);
         Task UpdateCliente(Cliente cliente);

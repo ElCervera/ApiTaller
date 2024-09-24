@@ -18,14 +18,14 @@ namespace ApiTaller.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllCitas()
         {
-            var citas = await _clienteService.GetAllCitas();
+            var citas = await _clienteService.GetAllCliente();
             return Ok(citas);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCitaById(long id)
         {
-            var cita = await _clienteService.GetCitaById(id);
+            var cita = await _clienteService.GetClienteById(id);
             if (cita == null)
                 return NotFound();
 
@@ -35,25 +35,25 @@ namespace ApiTaller.Controllers
         [HttpPost]
         public async Task<IActionResult> AddCita([FromBody] Cita cita)
         {
-            await _clienteService.AddCliente(cita);
+            await _clienteService.AddCliente(cliente);
             return CreatedAtAction(nameof(GetCitaById), new { id = cita.Id }, cita);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCita(long id, [FromBody] Cita cita)
         {
-            var existingCita = await _clienteService.GetCitaById(id);
+            var existingCita = await _clienteService.GetClienteById(id);
             if (existingCita == null)
                 return NotFound();
 
-            await _clienteService.UpdateCita(cita);
+            await _clienteService.UpdateCliente(cliente);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCita(long id)
     {
-            await _clienteService.DeleteCita(id);
+            await _clienteService.DeleteCliente(id);
             return NoContent();
         }
     }

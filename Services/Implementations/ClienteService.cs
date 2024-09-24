@@ -13,7 +13,7 @@ namespace ApiTaller.Services.Implementations
             _clienteRepository = clienteRepository;
         }
 
-        public async Task<IEnumerable<Cliente>> GetAllCliente()
+        public async Task<IEnumerable<Cliente>> GetAllCliente() 
         {
             return await _clienteRepository.GetAllCliente();
         }
@@ -33,8 +33,8 @@ namespace ApiTaller.Services.Implementations
             await _clienteRepository.UpdateCliente(cliente);
         }
 
-        public async Task DeleteCita(long id)
-    {
+        public async Task DeleteCliente(long id)
+        {
             await _clienteRepository.DeleteCliente(id);
         }
     }
