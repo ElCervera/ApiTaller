@@ -16,34 +16,34 @@ namespace ApiTaller.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllCitas()
+        public async Task<IActionResult> GetAllCliente()
         {
-            var citas = await _clienteService.GetAllCliente();
-            return Ok(citas);
+            var cliente = await _clienteService.GetAllCliente();
+            return Ok(cliente);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetCitaById(long id)
+        public async Task<IActionResult> GetClienteById(long id)
         {
-            var cita = await _clienteService.GetClienteById(id);
-            if (cita == null)
+            var cliente = await _clienteService.GetClienteById(id);
+            if (cliente == null)
                 return NotFound();
 
-            return Ok(cita);
+            return Ok(cliente);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCita([FromBody] Cita cita)
+        public async Task<IActionResult> AddCliente([FromBody] Cliente cliente)
         {
             await _clienteService.AddCliente(cliente);
-            return CreatedAtAction(nameof(GetCitaById), new { id = cita.Id }, cita);
+            return CreatedAtAction(nameof(GetClienteById), new { id = cliente.Id }, cliente);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCita(long id, [FromBody] Cita cita)
+        public async Task<IActionResult> UpdateCliente(long id, [FromBody] Cliente cliente)
         {
-            var existingCita = await _clienteService.GetClienteById(id);
-            if (existingCita == null)
+            var existingCliente = await _clienteService.GetClienteById(id);
+            if (existingCliente == null)
                 return NotFound();
 
             await _clienteService.UpdateCliente(cliente);
@@ -51,7 +51,7 @@ namespace ApiTaller.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCita(long id)
+        public async Task<IActionResult> DeleteCliente(long id)
     {
             await _clienteService.DeleteCliente(id);
             return NoContent();
