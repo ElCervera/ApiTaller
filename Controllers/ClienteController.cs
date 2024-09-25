@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ApiTaller.Models;
 using ApiTaller.Services.Interfaces;
-//ejemplo
+
 namespace ApiTaller.Controllers
 {
     [Route("api/[controller]")]
@@ -51,7 +51,7 @@ namespace ApiTaller.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCita(long id)
+        public async Task<IActionResult> DeleteCliente(long id)
     {
             await _clienteService.DeleteCliente(id);
             return NoContent();
